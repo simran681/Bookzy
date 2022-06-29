@@ -1,0 +1,42 @@
+
+{% extends 'base.html' %}
+{% block title %}Index{% endblock title %}
+{% block body %}
+  
+
+    <div class="container-fluid mt-3">
+      <div class="row">
+        
+<!--Filter-->
+        <div class="col-lg-3 mx-auto">
+          <div class="list-group">
+            <a href="/" class="list-group-item list-group-item-action ">All Books</a>
+          </div>
+          {% for category in categories%}
+            <div class="list-group">
+              <a href="/?category={{category.id}}" class="list-group-item list-group-item-action ">{{category.name}}</a>
+            </div>
+            {% endfor%}
+        </div>
+<!--All Books-->
+      <div class="col-lg-9" id ='Books'>
+        <div class="row mx-auto">
+          {% for book in books %}
+          <div class="card mx-auto mb-3" style="width: 18rem;">
+              <a class="nav-link" href="/book"><img class="card-img-top" src="{{book.image.url}}" alt="Card image cap"></a>
+          <div class="card-body">
+          <h5 class="card-title">{{book.name}}</h5>
+              <a href="#" download="#" class="btn btn-primary">Download</a>
+          </div>
+          </div>
+          {% endfor%}
+        </div>
+      </div>
+    </div>
+  </div>    
+  <!---->
+
+  
+{% endblock body %}
+  
+
